@@ -1,7 +1,3 @@
 {
-    "token": "",
-    "prefix": "",
-    "mongooseConnectionString": "",
-    "webhookURL": ""
-
+    "prefix": ""
 }

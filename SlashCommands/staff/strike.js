@@ -1,7 +1,7 @@
 const { Client, CommandInteraction, MessageEmbed, MessageActionRow, MessageButton, WebhookClient, Message } = require('discord.js');
 const schema = require('../../database/models/strikeSchema')
-const { webhookURL } = require('../../config.json');
-const webhookClient = new WebhookClient({ url: webhookURL });
+require('dotenv').config();
+const webhookClient = new WebhookClient({ url: process.env.WEBHOOK_URL });
 const uniqid = require('uniqid'); 
 const datenow = Date.now();
 const timestp = Math.floor(datenow / 1000)

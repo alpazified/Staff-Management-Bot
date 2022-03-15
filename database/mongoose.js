@@ -1,13 +1,11 @@
-const config = require('../config.json');
-const mongoose = require('mongoose');
-
+require('dotenv').config();
 module.exports = {
   init: () => {
-    if (!config.mongooseConnectionString)
+    if (!process.env.MONGOOSE_URL)
       throw new Error('\x1b[31m%s\x1b[0m', `❌ | No MongoDB Client Key found in the configuration.`)
 
     // Init the connection and the Parser. Database connection link is protected in the Config
-    mongoose.connect(config.mongooseConnectionString, {
+    mongoose.connect(process.env.MONGOOSE_URL, {
       keepAlive: true,
       useNewUrlParser: true,
       useUnifiedTopology: true,

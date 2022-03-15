@@ -4,8 +4,8 @@ const datenow = Date.now();
 const timestp = Math.floor(datenow / 1000)
 const emotes = require('../../emotes.json')
 const uniqid = require('uniqid');
-const { webhookURL } = require('../../config.json');
-const webhookClient = new WebhookClient({ url: webhookURL });
+require('dotenv').config();
+const webhookClient = new WebhookClient({ url: process.env.WEBHOOK_URL });
     module.exports = {
         name: 'loa',
         description: 'Request to go on LOA',

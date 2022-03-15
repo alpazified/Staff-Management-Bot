@@ -11,13 +11,6 @@ client.on("interactionCreate", async (interaction) => {
         const cmd = client.slashCommands.get(interaction.commandName);
         if (!cmd)
             return interaction.editReply({ content: "An error has occured", ephemeral: true });
-
-            if (cmd.ownerOnly) {
-                if (!client.config.developers.includes(interaction.user.id)) {
-                let ownerOnly = new MessageEmbed()
-                        .setDescription("This command is limited to the bot developers!" )
-                return interaction.editReply({embeds : [ownerOnly], ephemeral: true})
-                    }}
                 
                     if (cmd.userPerms) {
                         if (!client.guilds.cache.get(interaction.guild.id).members.cache.get(interaction.member.id).permissions.has(cmd.userPerms || [])) {

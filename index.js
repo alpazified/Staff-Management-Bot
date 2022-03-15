@@ -1,6 +1,7 @@
 const { Client, Collection, MessageEmbed } = require("discord.js");
 const logger = require('./utils/logger.js');
 const mongoose = require('./database/mongoose')
+require('dotenv').config()
 
 const client = new Client({
     intents: 32767,
@@ -22,8 +23,8 @@ client.package = require("./package.json");
 
 require("./handler")(client);
 
-mongoose.init()
-client.login(client.config.token);
+mongoose.init();
+client.login(process.env.TOKEN);
 
 process.on('warning', (warning) => {
   console.warn(warning.name);

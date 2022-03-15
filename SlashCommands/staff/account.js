@@ -1,10 +1,8 @@
 const { Client, CommandInteraction, MessageEmbed, MessageActionRow, MessageButton, WebhookClient, Message } = require('discord.js');
-const { webhookURL } = require('../../config.json');
+require('dotenv').config();
+const webhookClient = new WebhookClient({ url: process.env.WEBHOOK_URL });
 const schema = require('../../database/models/staffSchema')
-const webhookClient = new WebhookClient({ url: webhookURL });
 const validator = require("email-validator");
-const timezoneValidator  = require("timezone-validator")
-
     module.exports = {
         name: 'account',
         description: 'Account management',
