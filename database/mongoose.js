@@ -1,4 +1,5 @@
 require('dotenv').config();
+const mongoose = require('mongoose')
 module.exports = {
   init: () => {
     if (!process.env.MONGOOSE_URL)
